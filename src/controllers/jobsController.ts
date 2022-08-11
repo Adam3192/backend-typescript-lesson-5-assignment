@@ -22,6 +22,9 @@ export const getJobById: RequestHandler = (req, res, next) => {
         return job.id === parseInt(jobId);
     })
 
+    console.log(jobId);
+    console.log(typeof jobId);
+    
     // if the job was not found, return not found
     if (!foundJob) {
         return res.render('error', {
@@ -54,6 +57,8 @@ export const deleteJob: RequestHandler = (req, res, next) => {
     let foundIndex = jobList.findIndex(job => {
         return job.id === parseInt(jobId);
     });
+
+    console.log(jobId);
 
     // delete the item at the index location
     jobList.splice(foundIndex, 1);
